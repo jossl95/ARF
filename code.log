@@ -35,7 +35,7 @@ Notes:
       name:  <unnamed>
        log:  /Users/MacbookJos/.ipython/stata/log_output.log
   log type:  text
- opened on:  25 Mar 2020, 16:59:02
+ opened on:  25 Mar 2020, 17:26:55
 
 . 
 . // normalize features
@@ -81,208 +81,70 @@ Notes:
 (12556 differences between m_maxw and q)
 
 . 
-. mepoisson ln_neg_count_min c.arf i.q international_shipment i.items i.size category_count || w: 
-note: ln_neg_count_min has noncount values;
-      you are responsible for the family(poisson) interpretation
-Fitting fixed-effects model:
+. mixed ln_neg_count_min c.arf i.q international_shipment i.items i.size category_count ///
+>    || w: ,  nolrtest
 
-Iteration 0:   log likelihood = -44648.156  
-Iteration 1:   log likelihood = -42165.877  
-Iteration 2:   log likelihood = -42097.571  
-Iteration 3:   log likelihood = -42084.478  
-Iteration 4:   log likelihood = -42081.524  
-Iteration 5:   log likelihood = -42080.853  
-Iteration 6:   log likelihood = -42080.692  
-Iteration 7:   log likelihood =  -42080.66  
-Iteration 8:   log likelihood = -42080.654  
-Iteration 9:   log likelihood = -42080.653  
-Iteration 10:  log likelihood = -42080.653  
-Iteration 11:  log likelihood = -42080.653  
+Performing EM optimization: 
 
-Refining starting values:
+Performing gradient-based optimization: 
 
-Grid node 0:   log likelihood = -39638.981
+Iteration 0:   log likelihood = -42098.926  
+Iteration 1:   log likelihood = -42098.926  
 
-Refining starting values (unscaled likelihoods):
+Computing standard errors:
 
-Grid node 0:   log likelihood = -40329.672
+Mixed-effects ML regression                     Number of obs     =     23,511
+Group variable: w                               Number of groups  =         50
 
-Fitting full model:
+                                                Obs per group:
+                                                              min =          1
+                                                              avg =      470.2
+                                                              max =        861
 
-numerical derivatives are approximate
-nearby values are missing
-Iteration 0:   log likelihood = -40329.672  (not concave)
-numerical derivatives are approximate
-nearby values are missing
-Iteration 1:   log likelihood = -40329.672  (not concave)
-numerical derivatives are approximate
-nearby values are missing
-Iteration 2:   log likelihood = -40329.672  (not concave)
-numerical derivatives are approximate
-nearby values are missing
-Iteration 3:   log likelihood = -40329.672  (not concave)
-numerical derivatives are approximate
-nearby values are missing
-Iteration 4:   log likelihood = -40329.672  (not concave)
-numerical derivatives are approximate
-nearby values are missing
-Iteration 5:   log likelihood = -40329.672  (not concave)
-numerical derivatives are approximate
-nearby values are missing
-Iteration 6:   log likelihood = -40329.672  (not concave)
-numerical derivatives are approximate
-nearby values are missing
-Iteration 7:   log likelihood = -40329.672  (not concave)
-numerical derivatives are approximate
-nearby values are missing
-Iteration 8:   log likelihood = -40329.672  (not concave)
-numerical derivatives are approximate
-nearby values are missing
-Iteration 9:   log likelihood = -40329.672  (not concave)
-numerical derivatives are approximate
-nearby values are missing
-Iteration 10:  log likelihood = -40329.672  (not concave)
-numerical derivatives are approximate
-nearby values are missing
-Iteration 11:  log likelihood = -40329.672  (not concave)
-numerical derivatives are approximate
-nearby values are missing
-Iteration 12:  log likelihood = -40329.672  (not concave)
-numerical derivatives are approximate
-nearby values are missing
-Iteration 13:  log likelihood = -40329.672  (not concave)
-numerical derivatives are approximate
-nearby values are missing
-Iteration 14:  log likelihood = -40329.672  (not concave)
-numerical derivatives are approximate
-nearby values are missing
-Iteration 15:  log likelihood = -40329.672  (not concave)
-numerical derivatives are approximate
-nearby values are missing
-Iteration 16:  log likelihood = -40329.672  (not concave)
-numerical derivatives are approximate
-nearby values are missing
-Iteration 17:  log likelihood = -40329.672  (not concave)
-numerical derivatives are approximate
-nearby values are missing
-Iteration 18:  log likelihood = -40329.672  (not concave)
-numerical derivatives are approximate
-nearby values are missing
-Iteration 19:  log likelihood = -40329.672  (not concave)
-numerical derivatives are approximate
-nearby values are missing
-Iteration 20:  log likelihood = -40329.672  (not concave)
-numerical derivatives are approximate
-nearby values are missing
-Iteration 21:  log likelihood = -40329.672  (not concave)
-numerical derivatives are approximate
-nearby values are missing
-Iteration 22:  log likelihood = -40329.672  (not concave)
-numerical derivatives are approximate
-nearby values are missing
-Iteration 23:  log likelihood = -40329.672  (not concave)
-numerical derivatives are approximate
-nearby values are missing
-Iteration 24:  log likelihood = -40329.672  (not concave)
-numerical derivatives are approximate
-nearby values are missing
-Iteration 25:  log likelihood = -40329.672  (not concave)
-numerical derivatives are approximate
-nearby values are missing
-Iteration 26:  log likelihood = -40329.672  (not concave)
-numerical derivatives are approximate
-nearby values are missing
-Iteration 27:  log likelihood = -40329.672  (not concave)
-numerical derivatives are approximate
-nearby values are missing
-Iteration 28:  log likelihood = -40329.672  (not concave)
-numerical derivatives are approximate
-nearby values are missing
-Iteration 29:  log likelihood = -40329.672  (not concave)
-numerical derivatives are approximate
-nearby values are missing
-Iteration 30:  log likelihood = -40329.672  (not concave)
-numerical derivatives are approximate
-nearby values are missing
-Iteration 31:  log likelihood = -40329.672  (not concave)
-numerical derivatives are approximate
-nearby values are missing
-Iteration 32:  log likelihood = -40329.672  (not concave)
-numerical derivatives are approximate
-nearby values are missing
-Iteration 33:  log likelihood = -40329.672  (not concave)
-numerical derivatives are approximate
-nearby values are missing
-Iteration 34:  log likelihood = -40329.672  (not concave)
-numerical derivatives are approximate
-nearby values are missing
-Iteration 35:  log likelihood = -40329.672  (not concave)
-numerical derivatives are approximate
-nearby values are missing
-Iteration 36:  log likelihood = -40329.672  (not concave)
-numerical derivatives are approximate
-nearby values are missing
-Iteration 37:  log likelihood = -40329.672  (not concave)
-numerical derivatives are approximate
-nearby values are missing
-Iteration 38:  log likelihood = -40329.672  (not concave)
-numerical derivatives are approximate
-nearby values are missing
-Iteration 39:  log likelihood = -40329.672  (not concave)
-numerical derivatives are approximate
-nearby values are missing
-Iteration 40:  log likelihood = -40329.672  (not concave)
-numerical derivatives are approximate
-nearby values are missing
-Iteration 41:  log likelihood = -40329.672  (not concave)
-numerical derivatives are approximate
-nearby values are missing
-Iteration 42:  log likelihood = -40329.672  (not concave)
-numerical derivatives are approximate
-nearby values are missing
-Iteration 43:  log likelihood = -40329.672  (not concave)
-numerical derivatives are approximate
-nearby values are missing
-Iteration 44:  log likelihood = -40329.672  (not concave)
-numerical derivatives are approximate
-nearby values are missing
-Iteration 45:  log likelihood = -40329.672  (not concave)
-numerical derivatives are approximate
-nearby values are missing
-Iteration 46:  log likelihood = -40329.672  (not concave)
-numerical derivatives are approximate
-nearby values are missing
-Iteration 47:  log likelihood = -40329.672  (not concave)
-numerical derivatives are approximate
-nearby values are missing
-Iteration 48:  log likelihood = -40329.672  (not concave)
-numerical derivatives are approximate
-nearby values are missing
-Iteration 49:  log likelihood = -40329.672  (not concave)
-numerical derivatives are approximate
-nearby values are missing
-Iteration 50:  log likelihood = -40329.672  (not concave)
-numerical derivatives are approximate
-nearby values are missing
-Iteration 51:  log likelihood = -40329.672  (not concave)
-numerical derivatives are approximate
-nearby values are missing
-Iteration 52:  log likelihood = -40329.672  (not concave)
-numerical derivatives are approximate
-nearby values are missing
-Iteration 53:  log likelihood = -40329.672  (not concave)
-numerical derivatives are approximate
-nearby values are missing
-Iteration 54:  log likelihood = -40329.672  (not concave)
-numerical derivatives are approximate
-nearby values are missing
-Iteration 55:  log likelihood = -40329.672  (not concave)
-numerical derivatives are approximate
-nearby values are missing
-Iteration 56:  log likelihood = -40329.672  (not concave)
-numerical derivatives are approximate
-nearby values are missing
-Iteration 57:  log likelihood = -40329.672  (not concave)
-numerical derivatives are approximate
-nearby values are missing
-Iteration 58:  log likelihood = -40329.672  (not concave)
+                                                Wald chi2(10)     =   10589.69
+Log likelihood = -42098.926                     Prob > chi2       =     0.0000
+
+----------------------------------------------------------------------------------------
+      ln_neg_count_min |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-----------------------+----------------------------------------------------------------
+                   arf |   .1326293   .0510276     2.60   0.009     .0326171    .2326415
+                       |
+                     q |
+                    2  |  -.3574871   .0336044   -10.64   0.000    -.4233506   -.2916236
+                    3  |   -.830163   .0506627   -16.39   0.000      -.92946   -.7308661
+                    4  |  -.7652063   .0671763   -11.39   0.000    -.8968694   -.6335432
+                       |
+international_shipment |   .4427094   .0205524    21.54   0.000     .4024275    .4829913
+                       |
+                 items |
+                    1  |   .4990119   .0285791    17.46   0.000     .4429979    .5550259
+                    2  |    1.17739   .0441271    26.68   0.000     1.090903    1.263878
+                       |
+                  size |
+                    1  |   .5808278   .0241563    24.04   0.000     .5334823    .6281733
+                    2  |   1.485316   .0286593    51.83   0.000     1.429145    1.541487
+                       |
+        category_count |   .0534864   .0055324     9.67   0.000     .0426431    .0643298
+                 _cons |   1.278988   .0926662    13.80   0.000     1.097365     1.46061
+----------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------
+  Random-effects Parameters  |   Estimate   Std. Err.     [95% Conf. Interval]
+-----------------------------+------------------------------------------------
+w: Identity                  |
+                  var(_cons) |   .3888899   .0799149      .2599616    .5817605
+-----------------------------+------------------------------------------------
+               var(Residual) |   2.083779   .0192393      2.046409     2.12183
+------------------------------------------------------------------------------
+
+. 
+. log close
+      name:  <unnamed>
+       log:  /Users/MacbookJos/.ipython/stata/log_output.log
+  log type:  text
+ closed on:  25 Mar 2020, 17:26:59
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+. 
+. 
+end of do-file
