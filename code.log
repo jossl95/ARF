@@ -35,13 +35,72 @@ Notes:
       name:  <unnamed>
        log:  /Users/MacbookJos/.ipython/stata/log_output.log
   log type:  text
- opened on:  29 Mar 2020, 21:42:41
+ opened on:   1 Apr 2020, 14:17:50
 
 . 
 . quietly{
 
-. 
+. mixed ame c.bc_neg_count_min##c.arf bc_pos_count_min c.w i.q* i.items_w* i.sales_w* international_shipment arm_maxw|| vendor:
+
+Performing EM optimization: 
+
+Performing gradient-based optimization: 
+
+Iteration 0:   log likelihood =  76580.244  
+Iteration 1:   log likelihood =  76580.244  
+
+Computing standard errors:
+
+Mixed-effects ML regression                     Number of obs     =     24,551
+Group variable: vendor                          Number of groups  =      1,040
+
+                                                Obs per group:
+                                                              min =          1
+                                                              avg =       23.6
+                                                              max =         51
+
+                                                Wald chi2(13)     =  502327.16
+Log likelihood =  76580.244                     Prob > chi2       =     0.0000
+
+------------------------------------------------------------------------------------------
+                     ame |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------------------+----------------------------------------------------------------
+        bc_neg_count_min |   .0131953   .0001743    75.69   0.000     .0128536    .0135369
+                     arf |   .0136623   .0014218     9.61   0.000     .0108756    .0164489
+                         |
+c.bc_neg_count_min#c.arf |    -.00091   .0005397    -1.69   0.092    -.0019678    .0001479
+                         |
+        bc_pos_count_min |  -.0663495    .000206  -322.09   0.000    -.0667533   -.0659458
+                       w |  -.0005733   9.53e-06   -60.15   0.000     -.000592   -.0005546
+                         |
+                       q |
+                      2  |   -.035361   .0009223   -38.34   0.000    -.0371687   -.0335532
+                      3  |  -.0443229   .0011648   -38.05   0.000     -.046606   -.0420399
+                      4  |  -.0249634   .0010159   -24.57   0.000    -.0269546   -.0229722
+                         |
+                 items_w |
+                 medium  |   .0017962   .0002074     8.66   0.000     .0013896    .0022028
+                   high  |   .0142946   .0002814    50.79   0.000      .013743    .0148462
+                         |
+                 sales_w |
+                   high  |  -.0249848   .0001998  -125.04   0.000    -.0253764   -.0245931
+  international_shipment |   .0036546   .0004055     9.01   0.000     .0028599    .0044494
+                arm_maxw |   .0302583   .0004288    70.56   0.000     .0294179    .0310987
+                   _cons |     .12716   .0004974   255.64   0.000     .1261851     .128135
+------------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------
+  Random-effects Parameters  |   Estimate   Std. Err.     [95% Conf. Interval]
+-----------------------------+------------------------------------------------
+vendor: Identity             |
+                  var(_cons) |   .0000789   4.02e-06      .0000714    .0000872
+-----------------------------+------------------------------------------------
+               var(Residual) |    .000102   9.43e-07      .0001002    .0001039
+------------------------------------------------------------------------------
+LR test vs. linear model: chibar2(01) = 8040.87       Prob >= chibar2 = 0.0000
+
 . esttab, b(3) se(3) wide nogaps nodepvars compress noparentheses
+(tabulating estimates stored by eststo; specify "." to tabulate the active results)
 
 --------------------------------------------------------
                  (1)                    (2)             
@@ -82,7 +141,7 @@ Standard errors in second column
       name:  <unnamed>
        log:  /Users/MacbookJos/.ipython/stata/log_output.log
   log type:  text
- closed on:  29 Mar 2020, 21:43:09
+ closed on:   1 Apr 2020, 14:18:35
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 . save "/Users/MacbookJos/.ipython/stata/data_output.dta", replace 
