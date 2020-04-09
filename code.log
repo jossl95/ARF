@@ -35,117 +35,180 @@ Notes:
       name:  <unnamed>
        log:  /Users/MacbookJos/.ipython/stata/log_output.log
   log type:  text
- opened on:   1 Apr 2020, 14:17:50
+ opened on:   9 Apr 2020, 13:01:54
 
 . 
-. quietly{
+. ppmlhdfe c_neg_count 
+Iteration 1:   deviance = 3.8479e+05  eps = .         iters = 1    tol = 1.0e-04  min(eta) =  -1.00  PS  
+Iteration 2:   deviance = 3.4199e+05  eps = 1.25e-01  iters = 1    tol = 1.0e-04  min(eta) =  -1.50   S  
+Iteration 3:   deviance = 3.3912e+05  eps = 8.48e-03  iters = 1    tol = 1.0e-04  min(eta) =  -1.67   S  
+Iteration 4:   deviance = 3.3910e+05  eps = 6.27e-05  iters = 1    tol = 1.0e-04  min(eta) =  -1.69   S  
+Iteration 5:   deviance = 3.3910e+05  eps = 4.22e-09  iters = 1    tol = 1.0e-05  min(eta) =  -1.69   S O
+------------------------------------------------------------------------------------------------------------
+(legend: p: exact partial-out   s: exact solver   h: step-halving   o: epsilon below tolerance)
+Converged in 5 iterations and 5 HDFE sub-iterations (tol = 1.0e-08)
 
-. mixed ame c.bc_neg_count_min##c.arf bc_pos_count_min c.w i.q* i.items_w* i.sales_w* international_shipment arm_maxw|| vendor:
-
-Performing EM optimization: 
-
-Performing gradient-based optimization: 
-
-Iteration 0:   log likelihood =  76580.244  
-Iteration 1:   log likelihood =  76580.244  
-
-Computing standard errors:
-
-Mixed-effects ML regression                     Number of obs     =     24,551
-Group variable: vendor                          Number of groups  =      1,040
-
-                                                Obs per group:
-                                                              min =          1
-                                                              avg =       23.6
-                                                              max =         51
-
-                                                Wald chi2(13)     =  502327.16
-Log likelihood =  76580.244                     Prob > chi2       =     0.0000
-
-------------------------------------------------------------------------------------------
-                     ame |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
--------------------------+----------------------------------------------------------------
-        bc_neg_count_min |   .0131953   .0001743    75.69   0.000     .0128536    .0135369
-                     arf |   .0136623   .0014218     9.61   0.000     .0108756    .0164489
-                         |
-c.bc_neg_count_min#c.arf |    -.00091   .0005397    -1.69   0.092    -.0019678    .0001479
-                         |
-        bc_pos_count_min |  -.0663495    .000206  -322.09   0.000    -.0667533   -.0659458
-                       w |  -.0005733   9.53e-06   -60.15   0.000     -.000592   -.0005546
-                         |
-                       q |
-                      2  |   -.035361   .0009223   -38.34   0.000    -.0371687   -.0335532
-                      3  |  -.0443229   .0011648   -38.05   0.000     -.046606   -.0420399
-                      4  |  -.0249634   .0010159   -24.57   0.000    -.0269546   -.0229722
-                         |
-                 items_w |
-                 medium  |   .0017962   .0002074     8.66   0.000     .0013896    .0022028
-                   high  |   .0142946   .0002814    50.79   0.000      .013743    .0148462
-                         |
-                 sales_w |
-                   high  |  -.0249848   .0001998  -125.04   0.000    -.0253764   -.0245931
-  international_shipment |   .0036546   .0004055     9.01   0.000     .0028599    .0044494
-                arm_maxw |   .0302583   .0004288    70.56   0.000     .0294179    .0310987
-                   _cons |     .12716   .0004974   255.64   0.000     .1261851     .128135
-------------------------------------------------------------------------------------------
-
+PPML regression                                   No. of obs      =     23,682
+                                                  Residual df     =     23,681
+                                                  Wald chi2(0)    =          .
+Deviance             =  339097.8777               Prob > chi2     =          .
+Log pseudolikelihood = -182904.1518               Pseudo R2       =    -0.0000
 ------------------------------------------------------------------------------
-  Random-effects Parameters  |   Estimate   Std. Err.     [95% Conf. Interval]
------------------------------+------------------------------------------------
-vendor: Identity             |
-                  var(_cons) |   .0000789   4.02e-06      .0000714    .0000872
------------------------------+------------------------------------------------
-               var(Residual) |    .000102   9.43e-07      .0001002    .0001039
+             |               Robust
+ c_neg_count |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+       _cons |    1.18237   .0350596    33.72   0.000     1.113655    1.251086
 ------------------------------------------------------------------------------
-LR test vs. linear model: chibar2(01) = 8040.87       Prob >= chibar2 = 0.0000
 
-. esttab, b(3) se(3) wide nogaps nodepvars compress noparentheses
-(tabulating estimates stored by eststo; specify "." to tabulate the active results)
+. 
+. ppmlhdfe c_neg_count,                                       ///
+>     cluster(vendor w)
+Iteration 1:   deviance = 3.8479e+05  eps = .         iters = 1    tol = 1.0e-04  min(eta) =  -1.00  PS  
+Iteration 2:   deviance = 3.4199e+05  eps = 1.25e-01  iters = 1    tol = 1.0e-04  min(eta) =  -1.50   S  
+Iteration 3:   deviance = 3.3912e+05  eps = 8.48e-03  iters = 1    tol = 1.0e-04  min(eta) =  -1.67   S  
+Iteration 4:   deviance = 3.3910e+05  eps = 6.27e-05  iters = 1    tol = 1.0e-04  min(eta) =  -1.69   S  
+Iteration 5:   deviance = 3.3910e+05  eps = 4.22e-09  iters = 1    tol = 1.0e-05  min(eta) =  -1.69   S O
+------------------------------------------------------------------------------------------------------------
+(legend: p: exact partial-out   s: exact solver   h: step-halving   o: epsilon below tolerance)
+Converged in 5 iterations and 5 HDFE sub-iterations (tol = 1.0e-08)
 
---------------------------------------------------------
-                 (1)                    (2)             
-                est1                   est2             
---------------------------------------------------------
-main                                                    
-bc_neg_c~n     0.013***     0.000     0.013***     0.000
-arf            0.020***     0.004     0.014***     0.001
-c.bc_neg~f     0.016***     0.001    -0.001        0.001
-bc_pos_c~n    -0.057***     0.001    -0.066***     0.000
-w              0.000***     0.000    -0.001***     0.000
-0.q            0.000            .     0.000            .
-1.q           -0.010***     0.002    -0.035***     0.001
-2.q            0.004        0.003    -0.044***     0.001
-3.q            0.037***     0.003    -0.025***     0.001
-0.items_w      0.000            .     0.000            .
-1.items_w     -0.000        0.001     0.002***     0.000
-2.items_w      0.045***     0.001     0.014***     0.000
-0.sales_w      0.000            .     0.000            .
-1.sales_w     -0.015***     0.001    -0.025***     0.000
-internat~t     0.009***     0.001     0.004***     0.000
-arm_maxw       0.147***     0.001     0.030***     0.000
-_cons          0.029***     0.001     0.127***     0.000
---------------------------------------------------------
-lns1_1_1                                                
-_cons         -3.819***     0.027    -4.724***     0.025
---------------------------------------------------------
-lnsig_e                                                 
-_cons         -3.581***     0.005    -4.595***     0.005
---------------------------------------------------------
-N              24551                  24551             
---------------------------------------------------------
-Standard errors in second column
-* p<0.05, ** p<0.01, *** p<0.001
+PPML regression                                   No. of obs      =     23,682
+                                                  Residual df     =         50
+Statistics robust to heteroskedasticity           Wald chi2(0)    =          .
+Deviance             =  339097.8777               Prob > chi2     =          .
+Log pseudolikelihood = -182904.1518               Pseudo R2       =    -0.0000
+
+Number of clusters (vendor) =        905
+Number of clusters (w)      =         51
+                              (Std. Err. adjusted for 51 clusters in vendor w)
+------------------------------------------------------------------------------
+             |               Robust
+ c_neg_count |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+       _cons |    1.18237   .1182243    10.00   0.000     .9506551    1.414086
+------------------------------------------------------------------------------
+
+.     
+. ppmlhdfe c_neg_count bc_pos_count                           ///
+>       item_count_w c.sales_volume_w international_shipment  ///
+>       has_price_drop c.me##c.me c.w##c.w,                   ///
+>     cluster(vendor w)
+Iteration 1:   deviance = 2.9026e+05  eps = .         iters = 1    tol = 1.0e-04  min(eta) =  -6.15  P   
+Iteration 2:   deviance = 2.2456e+05  eps = 2.93e-01  iters = 1    tol = 1.0e-04  min(eta) =  -6.98      
+Iteration 3:   deviance = 2.1237e+05  eps = 5.74e-02  iters = 1    tol = 1.0e-04  min(eta) =  -7.58      
+Iteration 4:   deviance = 2.1084e+05  eps = 7.26e-03  iters = 1    tol = 1.0e-04  min(eta) =  -7.81      
+Iteration 5:   deviance = 2.1079e+05  eps = 2.44e-04  iters = 1    tol = 1.0e-04  min(eta) =  -7.84      
+Iteration 6:   deviance = 2.1079e+05  eps = 4.01e-07  iters = 1    tol = 1.0e-04  min(eta) =  -7.84      
+Iteration 7:   deviance = 2.1079e+05  eps = 1.20e-12  iters = 1    tol = 1.0e-05  min(eta) =  -7.84   S O
+------------------------------------------------------------------------------------------------------------
+(legend: p: exact partial-out   s: exact solver   h: step-halving   o: epsilon below tolerance)
+Converged in 7 iterations and 7 HDFE sub-iterations (tol = 1.0e-08)
+
+PPML regression                                   No. of obs      =     23,682
+                                                  Residual df     =         50
+Statistics robust to heteroskedasticity           Wald chi2(9)    =    1851.35
+Deviance             =  210791.3536               Prob > chi2     =     0.0000
+Log pseudolikelihood = -118750.8898               Pseudo R2       =     0.3507
+
+Number of clusters (vendor) =        905
+Number of clusters (w)      =         51
+                                        (Std. Err. adjusted for 51 clusters in vendor w)
+----------------------------------------------------------------------------------------
+                       |               Robust
+           c_neg_count |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-----------------------+----------------------------------------------------------------
+          bc_pos_count |     .93476   .1046244     8.93   0.000        .7297     1.13982
+          item_count_w |   .0030501   .0007949     3.84   0.000     .0014922    .0046081
+        sales_volume_w |  -.0000498   .0000226    -2.21   0.027     -.000094   -5.58e-06
+international_shipment |   .6218125   .1587927     3.92   0.000     .3105846    .9330404
+        has_price_drop |  -.2781592   .1156235    -2.41   0.016     -.504777   -.0515414
+                    me |   .0297672   .0395901     0.75   0.452    -.0478279    .1073623
+                       |
+             c.me#c.me |  -.0024081   .0014224    -1.69   0.090    -.0051959    .0003797
+                       |
+                     w |   .0926936   .0152364     6.08   0.000     .0628308    .1225564
+                       |
+               c.w#c.w |  -.0031977   .0003318    -9.64   0.000    -.0038479   -.0025474
+                       |
+                 _cons |  -.0345699   .2055643    -0.17   0.866    -.4374684    .3683287
+----------------------------------------------------------------------------------------
+
+.     
+. ppmlhdfe c_neg_count bc_pos_count arf                       ///
+>       item_count_w c.sales_volume_w international_shipment  ///
+>       has_price_drop c.me##c.me c.w##c.w,                   ///
+>     cluster(vendor w)
+Iteration 1:   deviance = 2.9234e+05  eps = .         iters = 1    tol = 1.0e-04  min(eta) =  -6.18  P   
+Iteration 2:   deviance = 2.2376e+05  eps = 3.06e-01  iters = 1    tol = 1.0e-04  min(eta) =  -7.00      
+Iteration 3:   deviance = 2.1113e+05  eps = 5.98e-02  iters = 1    tol = 1.0e-04  min(eta) =  -7.59      
+Iteration 4:   deviance = 2.0964e+05  eps = 7.14e-03  iters = 1    tol = 1.0e-04  min(eta) =  -7.83      
+Iteration 5:   deviance = 2.0959e+05  eps = 2.28e-04  iters = 1    tol = 1.0e-04  min(eta) =  -7.86      
+Iteration 6:   deviance = 2.0959e+05  eps = 3.49e-07  iters = 1    tol = 1.0e-04  min(eta) =  -7.86      
+Iteration 7:   deviance = 2.0959e+05  eps = 9.10e-13  iters = 1    tol = 1.0e-05  min(eta) =  -7.86   S O
+------------------------------------------------------------------------------------------------------------
+(legend: p: exact partial-out   s: exact solver   h: step-halving   o: epsilon below tolerance)
+Converged in 7 iterations and 7 HDFE sub-iterations (tol = 1.0e-08)
+
+PPML regression                                   No. of obs      =     23,682
+                                                  Residual df     =         50
+Statistics robust to heteroskedasticity           Wald chi2(10)   =    2079.47
+Deviance             =  209588.6814               Prob > chi2     =     0.0000
+Log pseudolikelihood = -118149.5536               Pseudo R2       =     0.3540
+
+Number of clusters (vendor) =        905
+Number of clusters (w)      =         51
+                                        (Std. Err. adjusted for 51 clusters in vendor w)
+----------------------------------------------------------------------------------------
+                       |               Robust
+           c_neg_count |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-----------------------+----------------------------------------------------------------
+          bc_pos_count |   .9214924   .1112899     8.28   0.000     .7033683    1.139617
+                   arf |    .459623   .2459217     1.87   0.062    -.0223746    .9416205
+          item_count_w |   .0031589    .000815     3.88   0.000     .0015614    .0047563
+        sales_volume_w |  -.0000474    .000023    -2.06   0.039    -.0000924   -2.36e-06
+international_shipment |   .6218759   .1598638     3.89   0.000     .3085486    .9352033
+        has_price_drop |  -.2716393   .1160577    -2.34   0.019    -.4991081   -.0441704
+                    me |   .0315235    .039771     0.79   0.428    -.0464263    .1094732
+                       |
+             c.me#c.me |  -.0024475   .0014197    -1.72   0.085      -.00523    .0003351
+                       |
+                     w |   .0940781    .015045     6.25   0.000     .0645904    .1235659
+                       |
+               c.w#c.w |  -.0032242    .000329    -9.80   0.000    -.0038691   -.0025793
+                       |
+                 _cons |   -.087332   .2095723    -0.42   0.677    -.4980862    .3234222
+----------------------------------------------------------------------------------------
+
+.     
+. margins, dydx(*)
+
+Average marginal effects                        Number of obs     =     23,682
+Model VCE    : Robust
+
+Expression   : Predicted mean of c_neg_count, predict()
+dy/dx w.r.t. : bc_pos_count arf item_count_w sales_volume_w international_shipment has_price_drop me w
+
+----------------------------------------------------------------------------------------
+                       |            Delta-method
+                       |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-----------------------+----------------------------------------------------------------
+          bc_pos_count |   3.005999   .4753171     6.32   0.000     2.074394    3.937603
+                   arf |   1.499335   .8108798     1.85   0.064      -.08996     3.08863
+          item_count_w |   .0103046   .0029253     3.52   0.000      .004571    .0160381
+        sales_volume_w |  -.0001545   .0000821    -1.88   0.060    -.0003155    6.50e-06
+international_shipment |    2.02862   .5598321     3.62   0.000     .9313695    3.125871
+        has_price_drop |  -.8861139   .3910534    -2.27   0.023    -1.652564   -.1196634
+                    me |   .0087548    .075021     0.12   0.907    -.1382837    .1557933
+                     w |  -.0429091   .0100046    -4.29   0.000    -.0625178   -.0233005
+----------------------------------------------------------------------------------------
 
 . 
 . log close
       name:  <unnamed>
        log:  /Users/MacbookJos/.ipython/stata/log_output.log
   log type:  text
- closed on:   1 Apr 2020, 14:18:35
+ closed on:   9 Apr 2020, 13:01:59
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-. save "/Users/MacbookJos/.ipython/stata/data_output.dta", replace 
-file /Users/MacbookJos/.ipython/stata/data_output.dta saved
 
 . 
 . 
