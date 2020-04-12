@@ -35,7 +35,7 @@ Notes:
       name:  <unnamed>
        log:  /Users/MacbookJos/.ipython/stata/log_output.log
   log type:  text
- opened on:  11 Apr 2020, 16:13:29
+ opened on:  12 Apr 2020, 22:01:11
 
 . 
 . //#standardize time variables
@@ -69,6 +69,34 @@ Log pseudolikelihood = -177408.0548               Pseudo R2       =     0.0000
 c_neg_coun~t |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
        _cons |   1.191964   .0358692    33.23   0.000     1.121661    1.262266
+------------------------------------------------------------------------------
+
+. 
+. ppmlhdfe c_neg_count_w_shift,                                   ///
+>     cluster(vendor) keepsingletons
+warning: keeping singleton groups will keep fixed effects that cause separation
+Iteration 1:   deviance = 3.7325e+05  eps = .         iters = 1    tol = 1.0e-04  min(eta) =  -1.01  PS  
+Iteration 2:   deviance = 3.3168e+05  eps = 1.25e-01  iters = 1    tol = 1.0e-04  min(eta) =  -1.50   S  
+Iteration 3:   deviance = 3.2888e+05  eps = 8.49e-03  iters = 1    tol = 1.0e-04  min(eta) =  -1.67   S  
+Iteration 4:   deviance = 3.2886e+05  eps = 6.28e-05  iters = 1    tol = 1.0e-04  min(eta) =  -1.69   S  
+Iteration 5:   deviance = 3.2886e+05  eps = 4.23e-09  iters = 1    tol = 1.0e-05  min(eta) =  -1.69   S O
+------------------------------------------------------------------------------------------------------------
+(legend: p: exact partial-out   s: exact solver   h: step-halving   o: epsilon below tolerance)
+Converged in 5 iterations and 5 HDFE sub-iterations (tol = 1.0e-08)
+
+PPML regression                                   No. of obs      =     22,777
+                                                  Residual df     =        901
+Statistics robust to heteroskedasticity           Wald chi2(0)    =          .
+Deviance             =  328861.5584               Prob > chi2     =          .
+Log pseudolikelihood = -177408.0548               Pseudo R2       =     0.0000
+
+Number of clusters (vendor) =        902
+                               (Std. Err. adjusted for 902 clusters in vendor)
+------------------------------------------------------------------------------
+             |               Robust
+c_neg_coun~t |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+       _cons |   1.191964   .1091775    10.92   0.000     .9779795    1.405948
 ------------------------------------------------------------------------------
 
 . 
@@ -210,7 +238,7 @@ dy/dx w.r.t. : arf
       name:  <unnamed>
        log:  /Users/MacbookJos/.ipython/stata/log_output.log
   log type:  text
- closed on:  11 Apr 2020, 16:13:33
+ closed on:  12 Apr 2020, 22:01:15
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 . 
