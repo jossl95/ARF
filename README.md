@@ -15,6 +15,7 @@ Download or clone this repository on your local machine to unpack, parse and mut
 
 ### Analyses
 6. `Analyzer.ipynb` transforms variables for analyses with a yeo-johnson transformation. The analyses are performed in `R` using `lme4`'s `glmer` function to estimate random-slope models. 
+7. `Robustness.ipynb` additional analyses are performed to test the robustness of ARM operationalization. We test 3 additional operationalizations for ARM. 
 
 ## License
 
