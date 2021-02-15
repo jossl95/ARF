@@ -1,6 +1,6 @@
-# Thesis
+# Artificial Reputation Formation
 
-This depository contains all code that I used to analyse the [DNM archives](https://www.gwern.net/DNM-archives#download) for my thesis. In my analyses I will asses the effect of Artificial Reputation Formation on the market succes of cryptosellers. For this purpose I scraped the data on listing at 'SilkRoad2' market.  
+This depository contains all code that I used to analyse the [DNM archives](https://www.gwern.net/DNM-archives#download). In my analyses I will asses the effect of Artificial Reputation Formation on the market succes of cryptosellers. For this purpose I parsed the data on listing at 'SilkRoad2' market.  
 
 ## Getting Started
 ### Retrieving data
@@ -19,4 +19,4 @@ Download or clone this repository on your local machine to unpack, parse and mut
 
 ## License
 
-Copyright 2020 Jos Slabbekoorn
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
